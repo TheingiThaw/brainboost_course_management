@@ -20,7 +20,7 @@ use App\Http\Controllers\user\EnrolmentController;
             Route::get('enrol/list', [EnrolmentController::class,'enrolList'])->name('user#enrol#list');
 
             Route::group(['prefix' => 'account'], function () {
-                Route::get('dashboard', [UserController::class, 'dashboard'])->name('user#dashboard');
+                Route::get('userdashboard', [UserController::class, 'dashboard'])->name('user#dashboard');
                 Route::get('profile', [UserController::class, 'profile'])->name('user#profile');
                 Route::post('update', [UserController::class, 'update'])->name('user#update');
                 Route::get('myCourses',[UserController::class,'myCourses'])->name('user#mycourses');

@@ -10,23 +10,23 @@
                     <div class="row">
                         <div class="col-5">
                             <h5 class="mb-4">Payment methods</h5>
-                            {{--
+
                             @if (count($payments) != 0)
-                                @foreach ($payments as $payment) --}}
-                            <div class="">
-                                <b>
-                                    {{-- {{ $payment->type }} --}}
-                                </b> ( Name :
-                                {{-- {{ $payment->name }} --}}
-                                )
-                            </div>
+                                @foreach ($payments as $payment)
+                                    <div class="">
+                                        <b>
+                                            {{ $payment->type }}
+                                        </b> ( Name :
+                                        {{ $payment->name }}
+                                        )
+                                    </div>
 
-                            Account :
-                            {{-- {{ $payment->account_number }} --}}
+                                    Account :
+                                    {{ $payment->account_number }}
 
-                            <hr>
-                            {{-- @endforeach
-                            @endif --}}
+                                    <hr>
+                                @endforeach
+                            @endif
 
                         </div>
                         <div class="col">
@@ -75,8 +75,10 @@
                                                             is-invalid
                                                         @enderror">
                                                         <option value="">Choose Payment methods...</option>
-                                                        <option value="1">Kpay</option>
-                                                        <option value="2">CBPay</option>
+                                                        @foreach ($payments as $payment)
+                                                            <option value="{{ $payment->id }}">{{ $payment->type }}
+                                                            </option>
+                                                        @endforeach
                                                     </select>
                                                     @error('paymentType')
                                                         <small class="invalid-feedback">{{ $message }}</small>

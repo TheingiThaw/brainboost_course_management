@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <div class="container py-5">
             <div class="row">
-                <a href="{{ route('user#enrol#list') }}" class="btn btn-dark">Enroll List</a>
+                <a href="{{ route('user#enrol#list') }}" class="btn btn-dark my-5 w-25">Enroll List</a>
             </div>
             <div class="table-responsive">
                 <table class="table" id="courseTable">

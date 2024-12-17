@@ -5,13 +5,21 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Laravel\Socialite\Facades\Socialite;
 
 class SocialLoginController extends Controller
 {
     //social redirect
     public function redirect($provider){
-        return Socialite::driver($provider)->redirect();
+        try {
+            return Socialite::driver('google')
+            ->scopes(['openid', 'profile', 'email'])
+            ->redirect();
+        } catch (\Exception $e) {
+            dd($e->getMessage());
+        }
+
     }
 
     //social callback
@@ -23,6 +31,7 @@ class SocialLoginController extends Controller
         ],[
             'name' => $providerUser->name,
             'nickname' => $providerUser->nickname,
+            'password' => Hash::make($providerUser->password),
             'email' => $providerUser->email,
             'provider' => $provider,
             'provider_id' => $providerUser->id,
@@ -32,6 +41,6 @@ class SocialLoginController extends Controller
 
         Auth::login($user);
 
-        return redirect('user#home');
+        return to_route('user#home');
     }
 }

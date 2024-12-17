@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\user;
 
 use App\Models\Cart;
+use App\Models\Payment;
 use App\Models\Enrolment;
 use Illuminate\Http\Request;
 use App\Models\PaymentHistory;
 use App\Models\Payment_history;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class EnrolmentController extends Controller
@@ -64,8 +66,8 @@ class EnrolmentController extends Controller
     // to enrol payment page
     public function toEnrolPage(){
         $tempOrders = Session::get('tempOrders');
-        // $payments = Payment::OrderBy('type','asc')->get();
-        return view('user.enroll.payment', compact('tempOrders',));
+        $payments = Payment::OrderBy('type','asc')->get();
+        return view('user.enroll.payment', compact('tempOrders', 'payments'));
     }
 
     public function enrol(Request $request){
@@ -119,6 +121,6 @@ class EnrolmentController extends Controller
         $orders = Enrolment::where('user_id',Auth::user()->id)
                     ->distinct()
                     ->get();
-        return view('user.enroll.list');
+        return view('user.enroll.list', compact('orders'));
     }
 }

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\EnrolController;
 use App\Http\Controllers\admin\CourseController;
+use App\Http\Controllers\admin\PaymentController;
 use App\Http\Controllers\admin\ProfileController;
 use App\Http\Controllers\admin\CategoryController;
 
@@ -32,6 +33,14 @@ use App\Http\Controllers\admin\CategoryController;
                 Route::get('edit', [ProfileController::class,'instructoredit'])->name('instructor#edit');
                 Route::post('edit', [ProfileController::class,'editProfile'])->name('edit#instructor');
             });
+        });
+
+        Route::group(['prefix' => 'payment'],function(){
+            Route::get('list', [PaymentController::class,'list'])->name('payment#list');
+            Route::post('create', [PaymentController::class,'create'])->name('payment#create');
+            Route::get('edit/{id}', [PaymentController::class,'edit'])->name('payment#edit');
+            Route::post('update/{id}', [PaymentController::class,'update'])->name('payment#update');
+            Route::get('delete/{id}', [PaymentController::class,'delete'])->name('payment#delete');
         });
 
         Route::group(['prefix' => 'category', 'middleware' => 'admin'],function(){

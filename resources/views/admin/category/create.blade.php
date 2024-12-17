@@ -38,10 +38,12 @@
                                 <div>
                                     <select name="categoryId" class="form-select px-3 border-light"
                                         aria-label="Parent category" id="">
-                                        @if (count($parentCategories) != 0)
+                                        @if (count($parentCategoriesSelect) != 0)
                                             <option value="">Choose Parent Category</option>
-                                            @foreach ($parentCategories as $category)
-                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            @foreach ($parentCategoriesSelect as $category)
+                                                <option value="{{ $category->id }}"
+                                                    @if (old('categoryId') == $category->id) selected @endif>{{ $category->name }}
+                                                </option>
                                             @endforeach
                                         @endif
                                     </select>

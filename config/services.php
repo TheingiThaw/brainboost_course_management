@@ -35,14 +35,14 @@ return [
         ],
     ],
     'google' => [
-        'client_id' => env('GOOGLE-CLIENT-ID'),
-        'client_token' => env('GOOGLE_CLIENT_SECRET'),
-        'redirect' => '/auth/google/callback',
+        'client_id' => '840692496131-j4k9j2d8vuqsvtcd027dc9cblbvoorda.apps.googleusercontent.com',
+        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+        'redirect' => '/auth/google/callback'
     ],
     'github' => [
         'client_id' => env('GITHUB_CLIENT_ID'),
-        'client_token' => env('GITHUB_CLIENT_SECRET'),
-        'redirect' => '/auth/github/callback',
+        'client_secret' => env('GITHUB_CLIENT_SECRET'),
+        'redirect' => '/auth/github/callback'
     ],
 
 ];

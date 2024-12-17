@@ -56,13 +56,26 @@
 
             <small class="text-muted mt-3 text-capitalize mx-1">Course Manage</small>
 
-            <li class="nav-item">
-                <a class="nav-link"
-                    href="{{ (Auth::user()->role == 'user' ? route('user#mycourses') : Auth::user()->role == 'instructor') ? route('instructor#courses') : route('course#list') }}"><i
-                        class="fa-solid fa-chalkboard text-success"></i> <span
-                        class="text-success">{{ Auth::user()->role == 'user' ? 'My Courses' : 'Course Manage' }}
-                    </span></a>
-            </li>
+            @if (Auth::user()->role == 'user')
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('user#mycourses') }}">
+                        <i class="fa-solid fa-chalkboard text-success"></i>
+                        <span class="text-success">My Courses</span>
+                    </a>
+                </li>
+            @endif
+
+
+            @if (Auth::user()->role == 'instructor' || Auth::user()->role == 'admin' || Auth::user()->role == 'superadmin')
+                <li class="nav-item">
+                    <a class="nav-link"
+                        href="{{ Auth::user()->role == 'instructor' ? route('instructor#courses') : route('course#list') }}">
+                        <i class="fa-solid fa-chalkboard text-success"></i>
+                        <span class="text-success">Course Manage</span>
+                    </a>
+                </li>
+            @endif
+
 
             @if (Auth::user()->role == 'superadmin')
                 <li class="nav-item">
@@ -82,6 +95,11 @@
                             class="fa-solid fa-plus text-success"></i> <span class="text-success"> Add
                             Instructor
                         </span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('payment#list') }}"><i class="fa-solid fa-plus text-success"></i>
+                        <span class="text-success"> Add Payment </span></a>
                 </li>
             @endif
 
@@ -118,8 +136,9 @@
 
             @if (Auth::user()->role == 'user')
                 <li class="nav-item">
-                    <a class="nav-link" href=""><i class="fa-solid fa-heart text-success"></i> <span
-                            class="text-success"> Bookmarks </span></a>
+                    <a class="nav-link" href="{{ route('user#bookmarks') }}"><i
+                            class="fa-solid fa-heart text-success"></i> <span class="text-success"> Bookmarks
+                        </span></a>
                 </li>
             @endif
 

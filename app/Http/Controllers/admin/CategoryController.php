@@ -29,7 +29,9 @@ class CategoryController extends Controller
                         ->where('role','sub')
                         ->paginate(4);
         $parentCategories = Category::select('name','id','description','role','created_at')->where('role','parent')->paginate(4);
-        return view('admin.category.create', compact('parentCategories', 'categories'));
+
+        $parentCategoriesSelect = Category::select('name','id','description','role','created_at')->where('role','parent')->get();
+        return view('admin.category.create', compact('parentCategories', 'categories', 'parentCategoriesSelect'));
     }
 
     /**
