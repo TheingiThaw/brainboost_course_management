@@ -198,7 +198,7 @@
                                 class="form-control @error('prerequisites')
                                         is-invalid
                                     @enderror"
-                                placeholder="Enter Prerequisites...">{{ old('prerequisites', $course->prerequisites) }}</textarea>
+                                placeholder="Enter Prerequisites...">{{ old('prerequisites', $course->prerequisite) }}</textarea>
                             @error('prerequisites')
                                 <small class="invalid-feedback">{{ $message }}</small>
                             @enderror

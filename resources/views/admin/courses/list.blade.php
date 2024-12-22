@@ -54,7 +54,9 @@
                                             class="btn btn-sm btn-outline-secondary"> <i
                                                 class="fa-solid fa-pen-to-square"></i> </a>
                                         <button type="button" class="btn btn-sm btn-outline-danger"
-                                            onclick="confirmDelete({{ $course->id }})"> <i class="fa-solid fa-trash"></i>
+                                            onclick="confirmDelete({{ $course->id }})"
+                                            @if (Auth::user()->role != 'superadmin') @disabled(true) @endif>
+                                            <i class="fa-solid fa-trash"></i>
                                         </button>
                                     </td>
 

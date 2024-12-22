@@ -12,8 +12,9 @@ class SocialLoginController extends Controller
 {
     //social redirect
     public function redirect($provider){
+
         try {
-            return Socialite::driver('google')
+            return Socialite::driver($provider)
             ->scopes(['openid', 'profile', 'email'])
             ->redirect();
         } catch (\Exception $e) {

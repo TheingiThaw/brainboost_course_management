@@ -40,7 +40,7 @@
                                 <div class="col mr-2">
                                     <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                         Enrollment</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $enrolments }}</div>
                                 </div>
                                 <div class="col-auto">
                                     <i class="fa-solid fa-chalkboard-teacher fa-2x text-gray-300"></i>

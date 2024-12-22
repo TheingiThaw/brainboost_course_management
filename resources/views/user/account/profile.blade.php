@@ -9,7 +9,6 @@
             <div class="mt-3 d-flex justify-content-between">
                 <div class="d-flex">
                     <a href="{{ route('user#home') }}" class="btn btn-dark text-white">Back</a>
-
                     <a href="{{ route('user#dashboard') }}" class="btn btn-outline-dark ms-3">My Dashboard</a>
                 </div>
 

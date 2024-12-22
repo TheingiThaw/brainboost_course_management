@@ -18,7 +18,8 @@ class AdminController extends Controller
         $totalRevenue = PaymentHistory::sum('total_amt');
         $userCount = User::where('role','user')->count('id');
         $pendings = Enrolment::where('status',0)->count('id');
-        return view('admin.dashboard',compact('totalRevenue','userCount','pendings'));
+        $enrolments = Enrolment::where('status',1)->count('id');
+        return view('admin.dashboard',compact('totalRevenue','userCount','pendings','enrolments'));
     }
 
     //direct admin list page
