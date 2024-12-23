@@ -15,6 +15,6 @@ Brainboost Course management system is a Laravel-based Course management system 
 <ol>
     <li>Analytics Dashboard : Display total Amount, pending enrolment requests, total students</li>
     <li>Home : Welcome to Brainboost. Get inspired with courses and instructors</li>
-    <li>Enrollmens and Course Management : Stay educated with numerous free and paid courses in your educational destinations</li>
+    <li>Enrollmens and Course Management : Stay educated with numerous free and paid courses in your educational destinations. Vivid user interface and experience for enrolment status, payment transactions, comments and ratings with strict authorizations</li>
     <li>User roles: Admin, Instructor, Student specific dashboards and authorizations</li>
 </ol>
