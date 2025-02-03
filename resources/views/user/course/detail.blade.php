@@ -95,9 +95,19 @@
                             @foreach ($sections as $section)
                                 <div class="row bg-body-tertiary">
                                     <div class="col-1"><i class="fa-solid fa-minus"></i></div>
-                                    <div class="col"><a
-                                            href="{{ route('section#detail', $course->id) }}">{{ $section->title }}</a>
+                                    <div class="col">
+                                        {!! $course->status == 1
+                                            ? '<a href="' .
+                                                route('section#detail', ['id' => $course->id]) .
+                                                '?link=' .
+                                                urlencode($course->video) .
+                                                '">' .
+                                                $section->title .
+                                                '</a>'
+                                            : $section->title !!}
                                     </div>
+
+
                                     <div class="col-2">3 lectures</div>
                                 </div>
                             @endforeach

@@ -120,9 +120,17 @@ class UserController extends Controller
             'users.id as user_id',
             'users.created_at',
             'users.profile',
-            'users.email'
+            'users.email',
+            'enrolments.status',
+            'lectures.video'
         )
         ->leftJoin('users', 'users.id', 'courses.instructor_id')
+        ->leftJoin('enrolments', (function ($join)  {
+            $join->on('enrolments.course_id', '=', 'courses.id')
+                ->where('enrolments.user_id', '=', Auth::id());
+        }))
+        ->leftJoin('sections', 'sections.course_id', 'courses.id')
+        ->leftJoin('lectures', 'lectures.section_id', 'sections.id')
         ->where('courses.id', $id) // Disambiguate by specifying the table
         ->first();
 
@@ -139,13 +147,14 @@ class UserController extends Controller
         return view('user.course.detail', compact('course', 'goals', 'sections','reviews','rateCount'));
     }
 
-    public function sectionDetail($id){
+    public function sectionDetail($id, Request $request){
+        $link = urldecode(request('link'));
         $course = Course::where('id',$id)->first();
         $sections = Section::with('lectures')->where('course_id',$id)->get();
         $questions = Question::select('questions.id','questions.question','questions.answer','users.profile','users.name','questions.created_at')
                     ->leftJoin('users','users.id','questions.user_id')
                     ->where('course_id',$id)->get();
-        return view('user.course.section',compact('sections','course', 'questions'));
+        return view('user.course.section',compact('sections','course', 'questions', 'link'));
     }
 
     //store user questions
