@@ -131,6 +131,7 @@
                     });
                 })
 
+
                 $.ajax({
                     type: 'GET',
                     data: {
@@ -147,6 +148,7 @@
                             .responseText);
                     }
                 })
+
 
             })
         })

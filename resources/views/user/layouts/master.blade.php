@@ -200,6 +200,8 @@
     <!-- Template Javascript -->
     <script src="{{ asset('user/js/main.js') }}"></script>
 
+    @include('sweetalert::alert')
+
 
 </body>
 <script>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 23, 2024 at 06:33 AM
+-- Generation Time: Feb 04, 2025 at 09:37 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -35,6 +35,15 @@ CREATE TABLE `bookmarks` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `bookmarks`
+--
+
+INSERT INTO `bookmarks` (`id`, `user_id`, `course_id`, `created_at`, `updated_at`) VALUES
+(1, 8, 2, '2024-12-23 01:27:57', '2024-12-23 01:27:57'),
+(2, 8, 4, '2024-12-23 01:36:31', '2024-12-23 01:36:31'),
+(3, 11, 6, '2025-02-04 01:06:35', '2025-02-04 01:06:35');
+
 -- --------------------------------------------------------
 
 --
@@ -46,6 +55,14 @@ CREATE TABLE `cache` (
   `value` mediumtext NOT NULL,
   `expiration` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `cache`
+--
+
+INSERT INTO `cache` (`key`, `value`, `expiration`) VALUES
+('superadmin@gmail.com|127.0.0.1', 'i:1;', 1738642198),
+('superadmin@gmail.com|127.0.0.1:timer', 'i:1738642198;', 1738642198);
 
 -- --------------------------------------------------------
 
@@ -158,7 +175,9 @@ INSERT INTO `courses` (`id`, `name`, `title`, `description`, `price`, `level`, `
 (1, 'CS50\'s Introduction to Computer Science', 'CS50\'s Introduction to Computer Science', 'CS50x teaches students how to think algorithmically and solve problems efficiently. Topics include abstraction, algorithms, data structures, encapsulation, resource management, security, software engineering, and web development', '0', 'beginner', 3, 1, 7, '20', 'Harvardx', 'No basic knowledge in computer science', 1, '6760442e49fafHarvard-web-programming-2.jpeg', 0, '2024-12-16 08:45:58', '2024-12-17 01:09:40'),
 (2, 'CS50\'s Web Programming with Python and JavaScript', 'CS50\'s Web Programming with Python and JavaScript', 'Topics include database design, scalability, security, and user experience. Through hands-on projects, you\'ll learn to write and use APIs, create interactive UIs, and leverage cloud services like GitHub and Heroku', '1000000', 'beginner', 4, 1, 6, '20', 'Harvardx', 'No basic knowledge', 1, '6760453627a72ib4NNsp2qW4.jpg', 0, '2024-12-16 08:50:22', '2024-12-16 08:50:22'),
 (3, 'JLPT Preparation', 'JLPT Preparation', 'You can study vocabulary, grammar, listening, reading comprehension that corresponds to the JLPT level', '500000', 'intermediate', 7, 9, 11, '180', 'JLPT', 'Japanese level N5 or above', 1, '676128036e06eJapaneseJLPT-800-800-p-C-97.png', 0, '2024-12-17 00:58:03', '2024-12-17 00:58:03'),
-(4, 'IELTS Preparation', 'IELTS Preparation', 'The exam tests all forms of English. This includes reading, writing, listening and speaking. A high score on the exam is required by most universities, colleges, employers, and immigration authorities', '1000000', 'intermediate', 5, 9, 10, '30', 'IELTS Advantage', 'Intermediate Level (B1 or B2) and above', 0, '67612a945fa80images (2).jpg', 0, '2024-12-17 01:09:00', '2024-12-17 01:09:00');
+(4, 'IELTS Preparation', 'IELTS Preparation', 'The exam tests all forms of English. This includes reading, writing, listening and speaking. A high score on the exam is required by most universities, colleges, employers, and immigration authorities', '1000000', 'intermediate', 5, 9, 10, '30', 'IELTS Advantage', 'Intermediate Level (B1 or B2) and above', 0, '67612a945fa80images (2).jpg', 0, '2024-12-17 01:09:00', '2024-12-17 01:09:00'),
+(5, 'Learn PHP the Right Way', 'Learn PHP the Right Way', 'Lorem ipsum odor amet, consectetuer adipiscing elit. Facilisi sollicitudin pretium ullamcorper a mi id.', '1000000', 'beginner', 7, 1, 6, '20', 'Youtube', 'Lorem ipsum odor amet, consectetuer adipiscing elit. Facilisi sollicitudin pretium ullamcorper a mi id.', 1, '67a1bfb6d0c9530649.png', 0, '2025-02-04 00:50:22', '2025-02-04 00:50:22'),
+(6, 'Graphic Design Course', 'Graphic Design Course', 'Lorem ipsum odor amet, consectetuer adipiscing elit.', '1000000', 'beginner', 4, 1, 6, '34', 'Youtube', 'Lorem ipsum odor amet, consectetuer adipiscing elit.', 0, '67a1c186149daGraphicDesign1.jpg', 0, '2025-02-04 00:58:06', '2025-02-04 00:58:06');
 
 -- --------------------------------------------------------
 
@@ -181,8 +200,11 @@ CREATE TABLE `enrolments` (
 --
 
 INSERT INTO `enrolments` (`id`, `user_id`, `course_id`, `status`, `enrol_code`, `created_at`, `updated_at`) VALUES
-(1, 8, 4, '1', 'EC-871019', '2024-12-17 02:33:57', '2024-12-17 02:56:00'),
-(2, 8, 3, '1', 'EC-871019', '2024-12-17 02:33:57', '2024-12-17 02:56:00');
+(1, 8, 4, '1', 'EC-871019', '2024-12-17 02:33:57', '2024-12-23 01:39:16'),
+(2, 8, 3, '1', 'EC-871019', '2024-12-17 02:33:57', '2024-12-23 01:39:16'),
+(3, 11, 5, '1', 'EC-796081', '2025-02-04 01:03:22', '2025-02-04 02:04:36'),
+(4, 11, 6, '1', 'EC-205280', '2025-02-04 01:07:21', '2025-02-04 02:04:40'),
+(5, 11, 1, '1', 'EC-568058', '2025-02-04 02:03:00', '2025-02-04 02:04:47');
 
 -- --------------------------------------------------------
 
@@ -237,7 +259,13 @@ INSERT INTO `goals` (`id`, `course_id`, `goal`, `created_at`, `updated_at`) VALU
 (19, 4, 'Improve your overall test-taking strategies', NULL, NULL),
 (20, 1, 'Familiarity in a number of languages, including C, Python, SQL, and JavaScript plus CSS and HTML', NULL, NULL),
 (21, 1, 'Concepts like abstraction, algorithms, data structures, encapsulation, resource management, security, software engineering, and web development', NULL, NULL),
-(22, 1, 'A broad and robust understanding of computer science and programming', NULL, NULL);
+(22, 1, 'A broad and robust understanding of computer science and programming', NULL, NULL),
+(23, 5, 'Lorem ipsum odor amet, consectetuer adipiscing elit.', NULL, NULL),
+(24, 5, 'Lorem ipsum odor amet, consectetuer adipiscing elit.', NULL, NULL),
+(25, 5, 'Lorem ipsum odor amet, consectetuer adipiscing elit.', NULL, NULL),
+(26, 6, 'Lorem ipsum odor amet, consectetuer adipiscing elit.', NULL, NULL),
+(27, 6, 'Lorem ipsum odor amet, consectetuer adipiscing elit.', NULL, NULL),
+(28, 6, 'Lorem ipsum odor amet, consectetuer adipiscing elit.', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -311,7 +339,11 @@ INSERT INTO `lectures` (`id`, `section_id`, `name`, `video`, `description`, `cre
 (14, 7, 'IELTS 2025 Complete 11 Hour Course', 'https://youtu.be/xGtKdsVxV8A?si=9AFb4m4vG7ueVqYs', 'IELTS 2025 Complete 11 Hour Course', '2024-12-17 01:36:36', '2024-12-17 01:36:36'),
 (15, 8, 'HTML and CSS', 'https://youtu.be/zFZrkCIc2Oc?si=gNMlY0d60K6gOBzz', 'HTML and CSS', '2024-12-17 02:04:22', '2024-12-17 02:04:22'),
 (16, 9, 'Git', 'https://youtu.be/NcoBAfJ6l2Q?si=VDTDMRltkkmb0uWP', 'Git', '2024-12-17 02:06:33', '2024-12-17 02:06:33'),
-(17, 10, 'Python', 'https://youtu.be/EOLPQdVj5Ac?si=fwBMElK4f8zoW9ON', 'Python', '2024-12-17 02:07:05', '2024-12-17 02:07:05');
+(17, 10, 'Python', 'https://youtu.be/EOLPQdVj5Ac?si=fwBMElK4f8zoW9ON', 'Python', '2024-12-17 02:07:05', '2024-12-17 02:07:05'),
+(18, 11, 'PHP Unit', 'https://youtu.be/9-X_b_fxmRM?si=cO3UQbcNcRZEIjXY', 'https://youtu.be/9-X_b_fxmRM?si=cO3UQbcNcRZEIjXY', '2025-02-04 00:51:56', '2025-02-04 00:51:56'),
+(19, 11, 'Dependency Injection & DI', 'https://youtu.be/igx3bIl1T_c?si=4IagFnbflnuTNh-e', 'https://youtu.be/igx3bIl1T_c?si=4IagFnbflnuTNh-e', '2025-02-04 00:53:03', '2025-02-04 00:53:03'),
+(20, 12, 'PHP Generator', 'https://youtu.be/xH3snMmgDWg?si=IRMseKBOkLtjlRZb', 'Lorem ipsum odor amet, consectetuer adipiscing elit.', '2025-02-04 00:54:06', '2025-02-04 00:54:06'),
+(21, 13, 'Covariance & Contravariance in PHP', 'https://youtu.be/AgSrOI7N-fU?si=sh1hkwQNpYmXg4Pr', 'Covariance & Contravariance in PHP', '2025-02-04 00:55:10', '2025-02-04 00:55:10');
 
 -- --------------------------------------------------------
 
@@ -382,7 +414,8 @@ INSERT INTO `payments` (`id`, `name`, `account_number`, `type`, `created_at`, `u
 (1, 'Luna', '09987654321', 'Kpay', '2024-12-16 08:33:35', '2024-12-16 08:33:35'),
 (2, 'Ember', '000036452719234', 'CBPay', '2024-12-16 08:34:15', '2024-12-16 08:34:15'),
 (3, 'Crystal', '000034567890100', 'KBZPay', '2024-12-16 08:34:43', '2024-12-16 08:34:43'),
-(4, 'Jessica', '09123456789', 'AYAPay', '2024-12-16 08:35:06', '2024-12-16 08:35:06');
+(4, 'Jessica', '09123456789', 'AYAPay', '2024-12-16 08:35:06', '2024-12-16 08:35:06'),
+(5, 'Free', '0000000', 'Free', '2025-02-04 01:59:44', '2025-02-04 01:59:44');
 
 -- --------------------------------------------------------
 
@@ -408,7 +441,10 @@ CREATE TABLE `payment_histories` (
 --
 
 INSERT INTO `payment_histories` (`id`, `user_name`, `phone`, `address`, `payment_method`, `enrol_code`, `payslip_image`, `total_amt`, `created_at`, `updated_at`) VALUES
-(1, 'Theingi Thaw', '09123456789', 'New York', '3', 'EC-871019', '67613e7cf3be1images (1).png', '1500000', '2024-12-17 02:33:57', '2024-12-17 02:33:57');
+(1, 'Theingi Thaw', '09123456789', 'New York', '3', 'EC-871019', '67613e7cf3be1images (1).png', '1500000', '2024-12-17 02:33:57', '2024-12-17 02:33:57'),
+(2, 'Wonwoo', '09123456789', 'Hendon, London', '2', 'EC-796081', '67a1c2c2394caimages (1).png', '1000000', '2025-02-04 01:03:22', '2025-02-04 01:03:22'),
+(3, 'Wonwoo', '09123456789', 'Magway', '2', 'EC-205280', '67a1c3b101f97images (1).png', '1000000', '2025-02-04 01:07:21', '2025-02-04 01:07:21'),
+(4, 'Wonwoo', '09123456789', 'Magway', 'free', 'EC-568058', 'freemoney.png', '0', '2025-02-04 02:03:00', '2025-02-04 02:03:00');
 
 -- --------------------------------------------------------
 
@@ -431,7 +467,8 @@ CREATE TABLE `questions` (
 --
 
 INSERT INTO `questions` (`id`, `user_id`, `course_id`, `question`, `answer`, `created_at`, `updated_at`) VALUES
-(1, 8, 4, 'I love teacher so so much', NULL, '2024-12-17 02:56:48', '2024-12-17 02:56:48');
+(1, 8, 4, 'I love teacher so so much', NULL, '2024-12-17 02:56:48', '2024-12-17 02:56:48'),
+(2, 8, 2, 'I don\'t understand about git pull', NULL, '2024-12-23 01:27:08', '2024-12-23 01:27:08');
 
 -- --------------------------------------------------------
 
@@ -448,6 +485,14 @@ CREATE TABLE `reviews` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `reviews`
+--
+
+INSERT INTO `reviews` (`id`, `course_id`, `user_id`, `commment`, `rating`, `created_at`, `updated_at`) VALUES
+(1, 4, 8, 'I like this course', 4, '2024-12-23 01:36:26', '2024-12-23 01:36:26'),
+(2, 6, 11, 'Love this course', 4, '2025-02-04 01:06:44', '2025-02-04 01:06:44');
 
 -- --------------------------------------------------------
 
@@ -478,7 +523,10 @@ INSERT INTO `sections` (`id`, `course_id`, `title`, `description`, `created_at`,
 (7, 4, 'IELTS complete course', 'IELTS complete course', '2024-12-17 01:36:11', '2024-12-17 01:36:11'),
 (8, 2, 'week 0', 'week 0 in CS50 web', '2024-12-17 02:04:03', '2024-12-17 02:04:03'),
 (9, 2, 'week 1', 'week 1 in CS50 web', '2024-12-17 02:06:15', '2024-12-17 02:06:15'),
-(10, 2, 'week 2', 'week 2 in CS50 web', '2024-12-17 02:06:46', '2024-12-17 02:06:46');
+(10, 2, 'week 2', 'week 2 in CS50 web', '2024-12-17 02:06:46', '2024-12-17 02:06:46'),
+(11, 5, 'PHP testing', 'Lorem ipsum odor amet, consectetuer adipiscing elit.', '2025-02-04 00:51:19', '2025-02-04 00:51:19'),
+(12, 5, 'PHP Generator', 'Lorem ipsum odor amet, consectetuer adipiscing elit.', '2025-02-04 00:53:41', '2025-02-04 00:53:41'),
+(13, 5, 'Covariance & Contravariance in PHP', 'Covariance & Contravariance in PHP', '2025-02-04 00:54:55', '2025-02-04 00:54:55');
 
 -- --------------------------------------------------------
 
@@ -500,9 +548,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('bpgQdTAEpRyl8soEOy8Vfo4VovURR4bjg2yyh7XQ', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoibmR1ZFVUWlBPVlZpalNNbEZjTzg4S1lyeU9BMGl2NHRSbW9YV2NyNiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fX0=', 1734427371),
-('nieatoLBUZ5Pes5M7B0C0sDy6Y5tAYrwjggDuzy0', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiVUlFb2JUTzc2UzVYUU9qcGpWMDl5MVdUNEJWRmFGaXI0R09sY3NJeSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fX0=', 1734427654),
-('YRTgUSBoqhMp1F9zJcyjPMkLViYgdq4fknSgTSDZ', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiZ29wbWtVQzFvZUxweUNQalplRUhPdURWMG1TVmFSbk9pS2llUU5BciI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fX0=', 1734853599);
+('ipUsPoHib2cIofB8qbuF9ycFtTqmWUrKWP03KTNz', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoienZMT2tuVlp5U2tsNFRrREJCMzk0WGtJM3dybzZ2VjZwUEFTMFJreSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fX0=', 1738658222);
 
 -- --------------------------------------------------------
 
@@ -534,16 +580,17 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `nickname`, `email`, `email_verified_at`, `password`, `profile`, `phone`, `address`, `role`, `provider`, `provider_id`, `provider_token`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'gi genevieve', NULL, 'gignvv@gmail.com', NULL, '$2y$12$xSx6Qk.I.7mFpebz/Ynr7Of1clNNkIgdi/UaJYmrmJSVLHvoqTXqe', NULL, NULL, NULL, 'user', 'google', '110030719820820425385', 'ya29.a0ARW5m74OoZGbbiv_1AcfwVNGGwGknnZV-T9Hw_G2jaV-MZ5PhNWLH66VuxjG6OTOonp4Bm6gQahiczbDVr1nCGablC1r-4q0keEmn6GJkg7sZtNt33jWmu9NZnq0X3zKXvjqoOjaqyrczqWmrJc6qpcmG7hbrjTc5yQaCgYKAQ4SARASFQHGX2MiEo0YevKJAbiu2KdDgpppfA0170', NULL, '2024-12-16 06:32:59', '2024-12-17 02:16:59'),
+(1, 'gi genevieve', NULL, 'gignvv@gmail.com', NULL, '$2y$12$6Xw7qMrKMFb0LMG7viA/H.ioJInjfHYsL551cDazT3KgAHJPCx.o2', NULL, NULL, NULL, 'user', 'google', '110030719820820425385', 'ya29.a0AXeO80SmrYvRJ3EMGPVZdD6nNJMpnqtxkNd5gnr7Au-sbHOZLGRIG53enRc6KdVME-Eeu1zQLdNamDqWC-2YHQYfizIAxotfbNc1Yf0jPwRXUPoBk-E7u4taUFyt8V72qvDZD5tpMx5ZRDPLgV4cnp6cdmLBkip7MaNYHAeKNuYaCgYKATASARASFQHGX2Miv4pK_OxdCXQokF3N2RyPiA0178', NULL, '2024-12-16 06:32:59', '2025-02-03 09:53:23'),
 (2, 'superadmin1', 'superadmin1', 'superadmin1@gmail.com', NULL, '$2y$12$.9diBg8m3QqM4TdEMxQxFuax9zCgaBJtGW6I3EFkApBe5gefQwuT6', NULL, '09987654321', 'New York', 'superadmin', 'simple', NULL, NULL, NULL, NULL, '2024-12-16 06:45:22'),
 (3, 'Vernon', NULL, 'sirvernon@brainboost.com', NULL, '$2y$12$wYBDwO2px.btEY.nnpYIhO6usEk990ta37FzJqwSQBoC768Om1nnS', '676138a253914team-1.jpg', NULL, NULL, 'instructor', 'simple', NULL, NULL, NULL, '2024-12-16 07:26:07', '2024-12-17 02:08:58'),
 (4, 'Joshua', NULL, 'sirjoshua@brainboost.com', NULL, '$2y$12$HEbIGtRn7xhQJpfI3F2.YOsnBhwTdPXeRgw1EujR9LoS8e2DU84Pe', '676138c8d9a04team-3.jpg', NULL, NULL, 'instructor', 'simple', NULL, NULL, NULL, '2024-12-16 07:39:58', '2024-12-17 02:09:36'),
 (5, 'Wendy', NULL, 'wendy@brainboost.com', NULL, '$2y$12$QgF9cHsStyGqKfewyXp/a.Od.MTTysI/oBAcFyD9Wh/FNe4JmIf/m', '67613a74a2d71team-2.jpg', NULL, NULL, 'instructor', 'simple', NULL, NULL, NULL, '2024-12-16 07:46:15', '2024-12-17 02:16:44'),
 (6, 'Wen Jun Hui', NULL, 'sirwenjunhui@brainboost.com', NULL, '$2y$12$hrPLvs72yYTAOwqGyVB4b.CDmOL1vR4Cs0a4G53Rrpuc9nKTmu/Vm', '676138ee41167testimonial-3.jpg', NULL, NULL, 'instructor', 'simple', NULL, NULL, NULL, '2024-12-16 07:48:04', '2024-12-17 02:10:14'),
 (7, 'Xu Ming Hao', NULL, 'sirxuminghao@brainboost.com', NULL, '$2y$12$sd0LaKXILvobg028Ta0Sk.J3GC5lU.InnUDOEw/IpC3NTPAze3ObW', '67613a263a380testimonial-2.jpg', NULL, NULL, 'instructor', 'simple', NULL, NULL, NULL, '2024-12-16 07:51:33', '2024-12-17 02:15:26'),
-(8, NULL, 'TheingiThaw', 'theingithaw03@gmail.com', NULL, '$2y$12$ekH1QWiXz6ZkPy9ELklcMuFu9IttN/SME1LVpRym.6uI/Ra082pma', NULL, NULL, NULL, 'user', 'github', '122247105', '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', NULL, '2024-12-17 02:20:03', '2024-12-22 01:01:08'),
+(8, 'Theingi Thaw', NULL, 'theingithaw03@gmail.com', NULL, '$2y$12$Eb/AYnq1bf5KOITdk8TU4.cfMoW6j/ZtnAMWIQelgWtFHduoD9mf.', NULL, NULL, NULL, 'user', 'google', '114829742826554358176', 'ya29.a0AXeO80RCvsGArJpvrfRq12QudpLviHbn_a_ErkLlbSfSvRsgVLChC8iZi6hGA4COZ2t80SZkhuAVwcbJoV18ckmoRjJH-_17c_sXe9ZqvraLJGyoWYL8AWSIV3fNoIx5wx3myIWCyL2_PZe1W0lnd_JjbTJDDVFwIRM_N9hj04kaCgYKAQMSARESFQHGX2MiffLnE1uyu0J1DOLCAcJQvQ0178', NULL, '2024-12-17 02:20:03', '2025-02-03 22:30:04'),
 (9, 'giselle', NULL, 'giselle@gmail.com', NULL, '$2y$12$HiG9wpToInhsPLgF7jRZP.nKt51duyE6VaCjW33yJm189s.0Yzpla', NULL, '09987654321', NULL, 'user', 'simple', NULL, NULL, NULL, '2024-12-17 02:48:06', '2024-12-17 02:48:06'),
-(10, 'admin1', NULL, 'admin1@brainboost.com', NULL, '$2y$12$/D4VeUous3OzmglH78O5.OcCXYr3rgjcHRnrJOoFM7E45h4EGjLcG', NULL, NULL, NULL, 'admin', 'simple', NULL, NULL, NULL, '2024-12-22 01:12:22', '2024-12-22 01:12:22');
+(10, 'admin1', NULL, 'admin1@brainboost.com', NULL, '$2y$12$/D4VeUous3OzmglH78O5.OcCXYr3rgjcHRnrJOoFM7E45h4EGjLcG', NULL, NULL, NULL, 'admin', 'simple', NULL, NULL, NULL, '2024-12-22 01:12:22', '2024-12-22 01:12:22'),
+(11, 'Wonwoo', NULL, 'wonwoo@gmail.com', NULL, '$2y$12$DfDAVkGe470GzDz/PAQEg.Hg6uZpQEYMk2TM609fITcyx.4Dqidlm', NULL, '09123456789', NULL, 'user', 'simple', NULL, NULL, NULL, '2025-02-04 00:58:47', '2025-02-04 00:58:47');
 
 --
 -- Indexes for dumped tables
@@ -693,13 +740,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `bookmarks`
 --
 ALTER TABLE `bookmarks`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -717,13 +764,13 @@ ALTER TABLE `contacts`
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `enrolments`
 --
 ALTER TABLE `enrolments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -735,7 +782,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `goals`
 --
 ALTER TABLE `goals`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `jobs`
@@ -747,7 +794,7 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `lectures`
 --
 ALTER TABLE `lectures`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -759,37 +806,37 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `payment_histories`
 --
 ALTER TABLE `payment_histories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `questions`
 --
 ALTER TABLE `questions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `sections`
 --
 ALTER TABLE `sections`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

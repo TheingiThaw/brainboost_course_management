@@ -24,9 +24,9 @@
                                 <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
                                     style="top: 10px; left: 10px;">{{ $course->level }}</div>
 
-                                <div class="w-100 d-flex justify-content-center position-relative mb-4">
+                                <div class="w-100 d-flex mt-3 justify-content-center position-relative mb-4">
                                     <a href="{{ route('courses#detail', $course->id) }}"
-                                        class="btn btn-primary btn-sm px-3 border-end rounded-pill">Read More</a>
+                                        class="btn btn-primary btn-sm px-3 border-end rounded-pill">Start Learning</a>
                                 </div>
 
                             </div>

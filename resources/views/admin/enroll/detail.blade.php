@@ -46,7 +46,7 @@
                         <div class="col-5">Total Price :</div>
                         <div class="col-7">
                             {{ $paymentHistory->total_amt }} mmk<br>
-                            <small class=" text-danger ms-1">( Contain Delivery Charges )</small>
+
                         </div>
                     </div>
                 </div>

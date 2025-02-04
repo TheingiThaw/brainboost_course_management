@@ -215,7 +215,7 @@
 
                         <div class="my-4">
                             <h2>{{ $course->price }} mmk</h2>
-                            <a href="#" class="btn btn-primary rounded-1 w-100">
+                            <a href="{{ route('course#join', $course->id) }}" class="btn btn-primary rounded-1 w-100">
                                 Add to cart
                             </a>
                         </div>

@@ -73,7 +73,8 @@
                                                     <select name="paymentType" id=""
                                                         class=" form-select @error('paymentType')
                                                             is-invalid
-                                                        @enderror">
+                                                        @enderror"
+                                                        {{ $tempOrders[0]->total_amt == 0 ? 'disabled' : '' }}>
                                                         <option value="">Choose Payment methods...</option>
                                                         @foreach ($payments as $payment)
                                                             <option value="{{ $payment->id }}">{{ $payment->type }}
@@ -88,7 +89,8 @@
                                                     <input type="file" name="payslipImage" id=""
                                                         class="form-control @error('payslipImage')
                                                             is-invalid
-                                                        @enderror">
+                                                        @enderror"
+                                                        {{ $tempOrders[0]->total_amt == 0 ? 'disabled' : '' }}>
                                                     @error('payslipImage')
                                                         <small class="invalid-feedback">{{ $message }}</small>
                                                     @enderror

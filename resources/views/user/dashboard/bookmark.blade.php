@@ -6,20 +6,19 @@
         @if (count($bookmarks) != 0)
             @foreach ($bookmarks as $course)
                 <div class="col-lg-4 col-md-6 wow">
-                    <div class="course-item bg-white py-2">
-                        <div class="position-relative overflow-hidden">
-                            <div class="d-flex justify-content-center">
-                                <img class="img-fluid w-25" src="{{ asset('course/' . $course->image) }}" alt="">
+                    <div class="course-item position-relative bg-white py-2">
+                        <div class="position-relative ">
+                            <div class="d-flex justify-content-center h-100">
+                                <img class="img-fluid w-100" src="{{ asset('course/' . $course->image) }}" alt="">
                             </div>
                             <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
                                 style="top: 10px; left: 10px;">{{ $course->level }}</div>
-                            <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
-                                <a href="{{ route('courses#detail') }}"
-                                    class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end"
-                                    style="border-radius: 30px 0 0 30px;">Read More</a>
+                            <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mt-4">
+                                <a href="{{ route('courses#detail', $course->id) }}" class=" btn btn-sm btn-primary">Read
+                                    More</a>
                             </div>
                         </div>
-                        <div class="text-center p-4 pb-0">
+                        <div class="text-center mt-5 p-4 pb-0">
                             <h3 class="mb-0">{{ $course->price }} mmk</h3>
                             <div class="mb-3">
                                 @for ($i = 1; $i <= $course->average_rating; $i++)

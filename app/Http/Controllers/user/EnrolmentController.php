@@ -75,24 +75,29 @@ class EnrolmentController extends Controller
         $request->validate([
             'phone' => 'required|max:12',
             'address' => 'required|max:100',
-            'paymentType' => 'required',
-            'payslipImage' => 'required|file|mimes:jpeg,jpg,png|max:2048'
         ]);
 
         $paymentData = [
             'user_name' => $request->name,
             'phone' => $request->phone,
             'address' => $request->address,
-            'payment_method' => $request->paymentType,
+            'payment_method' => 'free',
             'enrol_code' => $request->enrolCode,
             'total_amt' => $request->totalAmount,
         ];
 
 
         if($request->hasfile('payslipImage')){
+            $request->validate([
+                'paymentType' => 'required',
+                'payslipImage' => 'required|file|mimes:jpeg,jpg,png|max:2048'
+            ]);
             $fileName = uniqid() . $request->file('payslipImage')->getClientOriginalName();
             $request->file('payslipImage')->move(public_path('paymentPhoto'), $fileName);
             $paymentData['payslip_image'] = $fileName;
+        }
+        else{
+            $paymentData['payslip_image'] = 'freemoney.png';
         }
 
         PaymentHistory::create($paymentData);

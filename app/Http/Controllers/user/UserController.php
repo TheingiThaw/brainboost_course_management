@@ -147,14 +147,23 @@ class UserController extends Controller
         return view('user.course.detail', compact('course', 'goals', 'sections','reviews','rateCount'));
     }
 
+    private function getYouTubeId($url) {
+        $regex = '/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|\S+\/\S+\/|\S+\/\S+\/?[\S\s]*\S+)?|youtu\.be\/)([\w-]{11})/';
+        preg_match($regex, $url, $matches);
+        return $matches ? $matches[1] : null;
+    }
+
     public function sectionDetail($id, Request $request){
-        $link = urldecode(request('link'));
+        $link = urldecode($request->query('link'));
+        $videoId = $this->getYouTubeId($link);
+        $embedURL = 'https://www.youtube.com/embed/' . $videoId;
+
         $course = Course::where('id',$id)->first();
         $sections = Section::with('lectures')->where('course_id',$id)->get();
         $questions = Question::select('questions.id','questions.question','questions.answer','users.profile','users.name','questions.created_at')
                     ->leftJoin('users','users.id','questions.user_id')
                     ->where('course_id',$id)->get();
-        return view('user.course.section',compact('sections','course', 'questions', 'link'));
+        return view('user.course.section',compact('sections','course', 'questions', 'embedURL'));
     }
 
     //store user questions
@@ -206,7 +215,6 @@ class UserController extends Controller
 
     //user bookmark course
     public function bookmark(Request $request){
-        logger($request);
 
         Bookmark::updateOrCreate([
             'user_id' => $request['userId'],
